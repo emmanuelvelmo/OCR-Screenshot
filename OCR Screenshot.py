@@ -122,8 +122,8 @@ class vent_princ:
         self.select_button.pack(fill=tkinter.BOTH, expand=True, padx=10)
         
         # Caja de texto
-        self.text_box = tkinter.Text(self.instancia_princ, font=("Arial", 11), bg="white", fg="black", bd=1)
-        self.text_box.pack(fill=tkinter.BOTH, expand=True, padx=10, pady=10)
+        self.caja_texto = tkinter.Text(self.instancia_princ, font=("Arial", 11), bg="white", fg="black", bd=1)
+        self.caja_texto.pack(fill=tkinter.BOTH, expand=True, padx=10, pady=10)
     
     # Función para iniciar ventana secundaria
     def f_click_vent_selec(self):
@@ -148,7 +148,7 @@ class vent_princ:
     # Función para actualizar caja de texto con texto extraído
     def f_act_caja_text(self, text):
         # Insertar el texto nuevo al final del contenido actual
-        self.text_box.insert(tkinter.END, text + "\n")
+        self.caja_texto.insert(tkinter.END, text + "\n")
 
 # Crear la instancia de la ventana principal
 vent_princ = vent_princ()
