@@ -115,7 +115,7 @@ class vent_princ:
         self.instancia_princ = tkinter.Tk()
         
         # Propiedades de la ventana principal
-        self.instancia_princ.title("OCR tmp_capt")
+        self.instancia_princ.title("OCR Screenshot")
         self.instancia_princ.geometry("450x300")
         self.instancia_princ.configure(bg="white")
         
