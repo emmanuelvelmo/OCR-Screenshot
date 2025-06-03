@@ -1,6 +1,6 @@
 import threading
-import pytesseract
 import tkinter
+import pytesseract
 from PIL import ImageGrab
 
 # Ruta al ejecutable de Tesseract
@@ -23,7 +23,7 @@ def capt_pant():
     y2 = max(y_ini, y_fin)
     
     # Capturar la pantalla en el área seleccionada
-    tmp_capt = ImageGrab.grab(bbox=(x1, y1, x2, y2))
+    tmp_capt = ImageGrab.grab(bbox = (x1, y1, x2, y2))
     
     # Extraer texto de la imagen
     tmp_txt = pytesseract.image_to_string(tmp_capt)
@@ -54,7 +54,7 @@ def f_vent_selec():
 # Función para iniciar ventana secundaria
 def f_vent_selec_hilo():
     # Iniciar la ventana secundaria en un hilo independiente
-    threading.Thread(target=f_vent_selec).start()
+    threading.Thread(target = f_vent_selec).start()
 
 # Ventana secundaria (para la selección rectangular)
 class vent_selecc:
@@ -64,15 +64,15 @@ class vent_selecc:
         
         # Ventana en pantalla completa y sin bordes
         self.instancia_secu.attributes("-fullscreen", True)
-        self.instancia_secu.configure(bg="black")
+        self.instancia_secu.configure(bg = "black")
         self.instancia_secu.overrideredirect(True)
         
         # Transparencia de la ventana
         self.instancia_secu.attributes("-alpha", 0.4)
         
         # Canvas donde se dibujará el rectángulo
-        self.canvas = tkinter.Canvas(self.instancia_secu, bg="black", bd=0, highlightthickness=0)
-        self.canvas.pack(fill="both", expand=True)
+        self.canvas = tkinter.Canvas(self.instancia_secu, bg = "black", bd = 0, highlightthickness = 0)
+        self.canvas.pack(fill = "both", expand = True)
         
         # Variable para las coordenadas del rectángulo
         self.rectxy = None
@@ -91,7 +91,7 @@ class vent_selecc:
         y_ini = event.y
         
         # Dibujar un rectángulo
-        self.rectxy = self.canvas.create_rectangle(x_ini, y_ini, x_ini, y_ini, outline="white", width=1, fill="grey")
+        self.rectxy = self.canvas.create_rectangle(x_ini, y_ini, x_ini, y_ini, outline = "white", width = 1, fill = "grey")
     
     # Función para actualizar el rectángulo de selección mientras se arrastra el mouse
     def mouse_arr(self, event):
@@ -120,13 +120,13 @@ class vent_princ:
         self.instancia_princ.configure(bg="white")
         
         # Botón para iniciar la selección
-        self.select_button = tkinter.Button(self.instancia_princ, text="New", command=self.f_click_vent_selec, height=2, width=20)
+        self.select_button = tkinter.Button(self.instancia_princ, text = "New", command = self.f_click_vent_selec, height = 2, width = 20)
         # Agregar el botón con un margen
-        self.select_button.pack(fill=tkinter.BOTH, expand=True, padx=10)
+        self.select_button.pack(fill = tkinter.BOTH, expand = True, padx = 10)
         
         # Caja de texto
-        self.caja_texto = tkinter.Text(self.instancia_princ, font=("Arial", 11), bg="white", fg="black", bd=1)
-        self.caja_texto.pack(fill=tkinter.BOTH, expand=True, padx=10, pady=10)
+        self.caja_texto = tkinter.Text(self.instancia_princ, font = ("Arial", 11), bg = "white", fg = "black", bd = 1)
+        self.caja_texto.pack(fill = tkinter.BOTH, expand = True, padx = 10, pady = 10)
     
     # Función para iniciar ventana secundaria
     def f_click_vent_selec(self):
